@@ -6,6 +6,7 @@ public class DictionaryGenerator {
     public static void main(String[] args) {
 
         boolean valid = true;
+        int entries = 0;
         Scanner keyboard = new Scanner(System.in);
         Scanner scanner = null;
         PrintWriter pw = null;
@@ -21,7 +22,7 @@ public class DictionaryGenerator {
         try {
             scanner = new Scanner(new FileInputStream("src/" + input_file));
 
-
+            // adding all words to an array
             while (scanner.hasNext()) {
                 words_split.add(scanner.next());
             }
@@ -36,14 +37,15 @@ public class DictionaryGenerator {
                 }
 
                 // removing apostrophe
-                if (word.contains("\'")) {
-                    word = word.substring(0, word.indexOf("'"));
+                if (word.contains("�")) {
+                    word = word.substring(0, word.indexOf("�"));
                 }
 
-                // looking for "?", ":", ",", ";", "!", "."
+                // looking for ending special characters "?", ":", ",", ";", "!", "."
                 if (word.endsWith("?") || word.endsWith(":") || word.endsWith(",") || word.endsWith(";") || word.endsWith("!") || word.endsWith(".")) {
                     word = word.substring(0, word.length() - 1);
                 }
+
                 // looking for any numbers
                 for (String number : numbers) {
                     if (word.contains(number)) {
@@ -52,6 +54,7 @@ public class DictionaryGenerator {
                     }
                 }
 
+                // verifies that the word is not already in the list
                 for (String item : list) {
                     if (item.equals(word.toUpperCase())) {
                         valid = false;
@@ -66,7 +69,15 @@ public class DictionaryGenerator {
 
             //sort the arraylist alphabetically
             list.sort(String.CASE_INSENSITIVE_ORDER);
-            int entries = list.size();
+            entries = list.size();
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        }
+
+
+        try {
             String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
             boolean found;
@@ -74,12 +85,15 @@ public class DictionaryGenerator {
             int i = 0; // list Arralist increment
             int l = 0; // letters array increment
 
+            pw = new PrintWriter(new FileOutputStream("SubDictionary.txt"));
+            pw.println("\nThe document produced this sub-dictionary, which included " + entries + " entries.");
+
             while (!done) {
                 do {
                     found = false;
                     // print out title for each starting letter
                     if (list.get(i).startsWith(letters[l])) {
-                        System.out.println("\n" + letters[l] + "\n=");
+                        pw.println("\n" + letters[l] + "\n==");
                         found = true;
                     } else {
                         l++; // moves onto next letter
@@ -89,7 +103,7 @@ public class DictionaryGenerator {
 
                 // while word starts with that letter, print it
                 while (list.get(i).startsWith(letters[l])) {
-                    System.out.println(list.get(i));
+                    pw.println(list.get(i));
                     if (i < entries - 1) {
                         i++; // moves to next word
                     } else {
@@ -100,30 +114,10 @@ public class DictionaryGenerator {
                 l++; // moves onto next starting letter
             }
 
-            System.out.println("\nThe document produced this sub-dictionary, which included " + entries + " entries.");
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        }
-
-
-        try {
-            pw = new PrintWriter(new FileOutputStream("SubDictionary.txt"));
-
-            // printing every word in the Arraylist
-            for (String input : list) {
-                pw.println(input);
-            }
-
             pw.close();
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }
-
-
-        // allow for blank input file??
-
-        // mc exception
         keyboard.close();
     }
 }

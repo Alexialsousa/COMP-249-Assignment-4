@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6060e6d7-1fc4-4f54-8bfd-f9c84e29c23c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CellList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubDictionary.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment 4/DictionaryGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 4/DictionaryGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 4/hey.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 4/hey.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 4/hey.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DictionaryGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DictionaryGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hey.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/hey.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PersonOfTheCentury.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hey.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +85,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585681790236</updated>
       <workItem from="1585681794857" duration="8554000" />
-      <workItem from="1586049764294" duration="4069000" />
+      <workItem from="1586049764294" duration="5736000" />
+      <workItem from="1586055589305" duration="4143000" />
     </task>
     <servers />
   </component>
